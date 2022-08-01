@@ -14,13 +14,13 @@ int divisible(int a, int b, int n)
 // find gcd of two numbers
 int euclid(int a, int b)
 {
-    // if (b == 0)
-    //     return a;
-
-    // return euclid(b, a % b);
+    /*
+    if (b == 0)
+        return a;
+    return euclid(b, a % b);
+    */
 
     // iterative version
-
     do
     {
         int r = a % b;
@@ -29,19 +29,17 @@ int euclid(int a, int b)
     } while (b != 0);
 
     return a;
-
 }
-
 
 int main()
 {
     cout << "Input: ";
     int a, b, n;
 
-    // cin >> a >> b >> n;
-    // cout << divisible(a, b, n) << endl;
+    cin >> a >> b >> n;
+    cout << divisible(a, b, n) << endl;
 
-    cin>>a>>b;
+    cin >> a >> b;
     cout << euclid(a, b) << endl;
 
     return 0;
