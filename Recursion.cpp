@@ -94,6 +94,54 @@ void hanoi(int disks, string from, string helper, string to)
     }
 }
 
+string replacePi(string s)
+{
+    if (s.length() < 2)
+        return s;
+
+    if (s[0] == 'p' && s[1] == 'i')
+        return "3.14" + replacePi(s.substr(2));
+    else
+        return s[0] + replacePi(s.substr(1));
+}
+
+void allSubstrings(string s, string ans = "")
+{
+    if (s.length() == 0)
+    {
+        cout << ans << endl;
+        return;
+    }
+    allSubstrings(s.substr(1), ans);
+    allSubstrings(s.substr(1), ans + s[0]);
+}
+
+// given a 2 x n floor, in how many ways can it be tiled using 1 x 2 tiles
+int waysOfTiling(int n)
+{
+    // base case
+    if (n <= 1)
+        return n;
+
+    return waysOfTiling(n - 1) + waysOfTiling(n - 2);
+}
+
+// 10 knapsack problem
+int oiKnapsack(int* profits, int* weights, int capacity, int n)
+{
+    if (capacity == 0 || n == 0)
+        return 0;
+
+    // item cannot be included
+    if(capacity < weights[n-1])
+        return oiKnapsack(profits, weights, capacity, n - 1);
+
+    int included = oiKnapsack(profits, weights, capacity - weights[n - 1], n - 1) + profits[n - 1];
+    int excluded = oiKnapsack(profits, weights, capacity, n - 1);
+    
+    return max(included, excluded);
+}
+
 int main()
 {
     /*
@@ -115,8 +163,24 @@ int main()
     */
 
     // cout << moveCharToEnd("atharva", 'a') << endl;
-
     // hanoi(4, "A", "B", "C");
+    // string exp = "xpixxpixxxpix";
+    // cout<< replacePi(exp) << endl;
+
+    /*
+    string s = "abcdef";
+    allSubstrings(s);
+    */
+
+    // cout << waysOfTiling(4) << endl;
+
+    /*
+    int profits[] = {100, 50, 150};
+    int weights[] = {10, 20, 30};
+    int capacity = 50;
+    int size = sizeof(weights) / sizeof(weights[0]);
+    cout<<oiKnapsack(profits, weights, capacity, size)<<endl;
+    */
 
     return 0;
 }
