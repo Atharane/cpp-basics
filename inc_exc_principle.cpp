@@ -21,12 +21,12 @@ int euclid(int a, int b)
     */
 
     // iterative version
-    do
+    while (b != 0)
     {
         int r = a % b;
         a = b;
         b = r;
-    } while (b != 0);
+    }
 
     return a;
 }
