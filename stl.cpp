@@ -5,7 +5,6 @@ int main()
 {
 
     // Unordered Set
-    
     /*
     {
         unordered_set<string> language;
@@ -59,6 +58,42 @@ int main()
         }
     }  
     */  
+
+    // Vector
+    {
+        vector<int> numbers;
+
+        numbers.push_back(1);
+        numbers.push_back(2);
+        numbers.push_back(3);
+        numbers.push_back(4);
+        numbers.push_back(5);
+
+        cout << "Size of vector: " << numbers.size() << endl;
+
+        for(auto it = numbers.begin(); it != numbers.end(); it++)
+        {
+            cout << *it << " ";
+        }
+        cout << endl;
+        
+        cout<<"last element: "<<numbers.back()<<endl;
+
+        // removes last element
+        numbers.pop_back();
+
+        for (auto it = numbers.begin(); it != numbers.end(); it++)
+        {
+            cout << *it << " ";
+        }
+        cout << endl;
+
+        // clear all the elements in vector
+        numbers.clear();
+
+        cout << "is vector empty: " << numbers.empty() << endl;
+    }
+
 
     return 0;
 }
