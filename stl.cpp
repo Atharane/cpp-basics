@@ -60,6 +60,7 @@ int main()
     */  
 
     // Vector
+
     {
         vector<int> numbers;
 
@@ -81,10 +82,10 @@ int main()
 
         // removes last element
         numbers.pop_back();
-
-        for (auto it = numbers.begin(); it != numbers.end(); it++)
+        // for each loop
+        for (auto it : numbers)
         {
-            cout << *it << " ";
+            cout << it << " ";
         }
         cout << endl;
 
@@ -92,7 +93,42 @@ int main()
         numbers.clear();
 
         cout << "is vector empty: " << numbers.empty() << endl;
+
+        // vector of predefined size & default value
+        vector<int> numbers2(5, 0);
+
+        // copy a vector
+        vector<int> numbers3(numbers2);
+
+        for (auto it = numbers3.begin(); it != numbers3.end(); it++)
+        {
+            cout << *it << " ";
+        }
+        cout << endl;
     }
+
+
+    // Pair
+    /*
+    {
+        pair<int, string> myPair(1, "lorem");
+
+        cout << "first element: " << myPair.first << endl;
+        cout << "second element: " << myPair.second << endl;
+
+        // Nested pair
+        pair<int, pair<string, string>> myPair2(9, make_pair("karim", "benzema"));
+
+        cout<<"first element: "<<myPair2.first<<endl;
+        cout<<"second element: "<<myPair2.second.first<<endl;
+        cout<<"third element: "<<myPair2.second.second<<endl;
+
+        // Array of pairs
+        pair<int, string> pairArr[3] = {make_pair(1, "david"), make_pair(8, "bruno"), make_pair(25, "jadon")};
+        cout<<"third element of array: "<<pairArr[2].second<<endl;
+    }
+    */
+    
 
 
     return 0;
